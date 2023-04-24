@@ -72,3 +72,48 @@ console.log("Nombre: ", misDatosDePerfil.nombre);
 console.log("Música de fin de semana: ", misDatosDePerfil.musicaPreferidaPorGenero.corridosTumbados);
 console.log("Nombre completo: ", misDatosDePerfil.nombreCompleto());
 console.log("Nombre completo: ", misDatosDeInstagram.nombreCompleto());
+
+// Array
+// Almacena diferentes tipos de datos, su primer elemento es el indice 0
+const cancionesPP = [
+  "Soy el belicón", "El azul", "El Tsurito", "AMG",
+  {
+    2020: 5,
+    2021: 30,
+    2022: 56,
+    total: 91
+  }
+];
+
+console.log(`Canción con color: ${cancionesPP[1]}`);
+console.log(`Canciones hechas en el año 2021: ${cancionesPP[4][2021]}`);
+
+console.log(`Num total de elementos: ${cancionesPP.length}`);
+console.log(`Contiene la canción AMG: ${cancionesPP.includes("AMG")}`);
+
+// ------------------------------------------------------------------------------------------
+// Conversión de datos
+const myNumber = 420; // Minutos de la sesión JS 01
+console.log(`Num. minutos en la sesión ${myNumber}`);
+
+// toNumber
+const myString = "420";
+const sumatoria = 80 + Number(myString);
+console.log(`Valor de la sumatoria ${sumatoria}`);
+
+//toParseInt
+const myStringInteger = "420.2020";
+const sumatoriaEntera = 80 + parseInt(myStringInteger);
+console.log(`Valor de la sumatoria ${sumatoriaEntera}`);
+
+//toParseFloat
+const myStringFloat = "420.2020";
+const sumatoriaDecimal = 80 + parseFloat(myStringFloat);
+console.log(`Valor de la sumatoria ${sumatoriaDecimal}`);
+
+// toBoolean
+const isBelicoso = "false";
+if(isBelicoso)
+  console.log(`Denle su belikin`);
+else
+  console.log(`Abra paso a la barredora`);
