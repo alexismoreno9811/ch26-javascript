@@ -260,13 +260,35 @@ const factorialConCicloFor = (numero) => {
 
 function factorialRecursivo (numero) {
   
-  if (numero === 1) {
+  if (numero === 1) 
     return 1;
-  } else {
-    return numero * factorialRecursivo(numero-1);
-  }
+  return numero * factorialRecursivo(numero-1);
+  
 }
+
+const factorial = number => (number === 2) ? number : number * factorial(number - 1);
 
 console.log(`Factorial de 5: ${factorialConCicloFor(5)}`);
 console.log(`Factorial de 5: ${factorialRecursivo(5)}`);
+console.log(`Factorial de 5: ${factorial(5)}`);
 
+//--------------- Ejercicio --------------------------------------------------------
+// Una función recursiva que muestre en consola
+/* 
+Saludo 1
+Saludo 2
+Saludo 3
+  ....
+Saludo n
+*/
+
+function saludoRecursivo(number) {
+  if (number == 1)
+    console.log(`Saludo ${number}`);
+  else {
+    saludoRecursivo(number - 1);
+    console.log(`Saludo ${number}`);
+  }
+}
+
+saludoRecursivo(5);
