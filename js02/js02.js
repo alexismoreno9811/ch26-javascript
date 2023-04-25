@@ -83,3 +83,66 @@ const areaTriangulo = (base = 1, altura = 1) => (base * altura) / 2;
 
 console.log(`Área de triangulo b:5 a:10 = ${areaTriangulo(5, 10)}`);
 console.log(`Área de triangulo b:8 = ${areaTriangulo(8)}`);
+
+//-------------------- Parámetros rest ----------------------------
+// Rest Parameters
+// Nos permite respresentar una serie de valores indefinidos en los argunemtos
+// Estos se presentan como array.
+// Debe estar al final de la lista de parámetros
+
+function sumatoriaVariosNumeros(a, b, ...restoDatos) {
+  let suma;
+  suma = a + b;
+  for (let index = 0; index < restoDatos.length; index++) {
+    suma += restoDatos[index];
+    
+  }
+  return suma;
+}
+
+console.log(`Sumatoria de varios números: ${sumatoriaVariosNumeros(5, 6)}`);
+console.log(`Sumatoria de varios números: ${sumatoriaVariosNumeros(5, 6, 9, 10)}`);
+console.log(`Sumatoria: ${sumatoriaVariosNumeros(5, 6, 9, 10, 20, 50)}`);
+
+// ---------------- Funciones de Callback ----------------
+// Función que se pasa a otra función como argumento, para luego invocarse
+// para completar algún tipo de rutina o acción.
+
+// 3 funciones, una que imprima en consola, alert y DOM h1.
+
+function imprimirConsola(nombre) {
+  console.log(`Hola ${nombre}`);
+}
+
+function imprimirAlert(nombre) {
+  alert(`Hola ${nombre}`);
+}
+
+function imprimirDom(nombre) {
+  const h1 = document.createElement("h1");
+  h1.innerHTML = nombre;
+  document.body.appendChild(h1);
+}
+
+imprimirConsola(`Alexis`);
+imprimirAlert(`Alexis`);
+imprimirDom(`Hola Alexis`);
+
+const addH1 = (mensaje) =>{
+  document.querySelector("#div").innerHTML = `<h1>${mensaje}</h1>`;
+};
+
+function getNamePrintToConsole() {
+  const name = prompt(`Dime tu nombre: `);
+  const text = `${name}, espero tengas un gran día`;
+  imprimirConsola(text);
+}
+
+function getNamePrintToDOM(){
+  const name = prompt("Dime tu nombre");
+  const text = `Hola ${name}, espero tengas un gran día`;
+  addH1(text);
+}
+
+getNamePrintToConsole();
+getNamePrintToDOM();
