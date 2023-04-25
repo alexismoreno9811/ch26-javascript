@@ -124,9 +124,11 @@ function imprimirDom(nombre) {
   document.body.appendChild(h1);
 }
 
+/* 
 imprimirConsola(`Alexis`);
 imprimirAlert(`Alexis`);
-imprimirDom(`Hola Alexis`);
+imprimirDom(`Hola Alexis`); 
+*/
 
 const addH1 = (mensaje) => {
   document.querySelector(".saludo").innerHTML = `<h1>${mensaje}</h1>`;
@@ -170,13 +172,101 @@ function double(arr) {
   return doubleNumbers;
 }
 
-const duplicate = (number) => number * 2;
+// Función que nos sirve de callback
+// const duplicate = (number) => number * 2;
 
-function doubleWithMap(array) {
-  const duplicateNumber = array.map(duplicate);
+/* function doubleWithMap(array) {
+  const duplicateNumber = array.map(function (number) {
+    return number * 2;
+  });
   return duplicateNumber;
-}
+} */
+function doubleWithMap(array) {
+  return array.map( number => number * 2);
+  }
 
 const numbers = [5, 10, 15, 20, 25];
 console.log(double(numbers));
 console.log(doubleWithMap(numbers));
+console.log(numbers.map(number => number * 2));
+console.log(numbers);
+
+const student1Courses = ["Math", "English", "Programming", "Biology", "Physics", "Music"];
+const student2Courses = ["Geography", "Spanish", "Programming", "Music"];
+const student3Courses = ["Music"];
+
+function commonCourses(arr1, arr2){
+  const courses = [];
+  for(let i=0; i<arr1.length; i++){
+      for(let j=0; j<arr2.length; j++){
+          if(arr1[i]===arr2[j])
+              courses.push( arr2[j]);
+      }
+  }
+  return `Cursos en comun ${courses}`;
+}
+
+// Usar filter y usar includes.
+function commonCoursesV2(student1Courses, student2Courses) {
+  return student1Courses.filter(course => student2Courses.includes(course) && student3Courses.includes(course) );
+}
+
+console.log(commonCourses(student1Courses, student2Courses));
+const comunCursos = commonCoursesV2(student1Courses, student2Courses);
+console.log("Common courses: ", comunCursos.join(", "));
+
+// -------------------- Contar la cantidad de caracteres de una frase ------------
+// pepe pecas pica papas con un pico y una pala
+// la cantidad de letras 'p': 8
+// resolverlo usando arrow function.
+
+const frase = "Pepe pecas pica papas con un pico y una pala";
+console.log(frase);
+
+function contarP(frase,letraB) {
+  const arr = frase.toLowerCase().split("");
+  const letraFiltrada =[letraB];
+  return arr.filter(letra => letraFiltrada.includes(letra)).length;
+}
+
+const countChar = (p, phrase) => phrase.toLowerCase().split("").filter(c => c == p).length;
+
+console.log(`la cantidad de letras 'p': ${contarP(frase, "p")}`);
+console.log(`la cantidad de letras 'p': ${countChar("p", frase)}`);
+
+//---------------------------Funciones recursivas--------------------------
+// Es una técnica de programación en donde la función se llama así misma.
+// Se debe tener precaución de no entrar a un bucle infinito.
+
+/* 
+  function funcionRecursiva(valor){
+    if (condiciónDeParo){
+      
+    }
+    else{
+      // Lamada recursiva.
+    }
+  }
+*/
+
+
+const factorialConCicloFor = (numero) => {
+  let total = numero;
+  for (let i = 2; i < numero; i++) {
+    total *= i;
+  }
+  return total;
+};
+
+function factorialRecursivo (numero) {
+  
+  if (numero === 1) {
+    return 1;
+  } else {
+    return numero * factorialRecursivo(numero-1);
+  }
+}
+
+console.log(`Factorial de 5: ${factorialConCicloFor(5)}`);
+console.log(`Factorial de 5: ${factorialRecursivo(5)}`);
+
