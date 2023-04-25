@@ -95,7 +95,7 @@ function sumatoriaVariosNumeros(a, b, ...restoDatos) {
   suma = a + b;
   for (let index = 0; index < restoDatos.length; index++) {
     suma += restoDatos[index];
-    
+
   }
   return suma;
 }
@@ -128,8 +128,8 @@ imprimirConsola(`Alexis`);
 imprimirAlert(`Alexis`);
 imprimirDom(`Hola Alexis`);
 
-const addH1 = (mensaje) =>{
-  document.querySelector("#div").innerHTML = `<h1>${mensaje}</h1>`;
+const addH1 = (mensaje) => {
+  document.querySelector(".saludo").innerHTML = `<h1>${mensaje}</h1>`;
 };
 
 function getNamePrintToConsole() {
@@ -138,11 +138,45 @@ function getNamePrintToConsole() {
   imprimirConsola(text);
 }
 
-function getNamePrintToDOM(){
+function getNamePrintToDOM() {
   const name = prompt("Dime tu nombre");
   const text = `Hola ${name}, espero tengas un gran día`;
   addH1(text);
 }
 
-getNamePrintToConsole();
-getNamePrintToDOM();
+function getNameAndPrint(funcionImprimir) {
+  const name = prompt("Dime tu nombre");
+  const text = `Hola ${name}, espero tengas un gran día`;
+  funcionImprimir(text);
+}
+
+//getNameAndPrint(imprimirConsola);
+//getNameAndPrint(addH1);
+
+//----------------------------------------------------------------------------
+/*
+    Ejercicio 2
+    Escribe una función que tome un arreglo de números,
+    duplique el valor de cada número del arreglo,
+    e imprima el nuevo arreglo actualizado.
+    [5, 10, 15, 20, 25] -> [10, 20, 30, 40, 50]
+*/
+function double(arr) {
+  const doubleNumbers = [];
+  for (let i = 0; i < arr.length; i++) {
+    const duplicate = arr[i] * 2;
+    doubleNumbers.push(duplicate);
+  }
+  return doubleNumbers;
+}
+
+const duplicate = (number) => number * 2;
+
+function doubleWithMap(array) {
+  const duplicateNumber = array.map(duplicate);
+  return duplicateNumber;
+}
+
+const numbers = [5, 10, 15, 20, 25];
+console.log(double(numbers));
+console.log(doubleWithMap(numbers));
