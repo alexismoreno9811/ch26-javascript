@@ -144,8 +144,51 @@ while (i < numbers.length) {
   } while( comprobación );
  
 */
+/* 
 let iteration = 0;
 do {
   iteration++;
   console.log(`Número de iteración do-while: ${iteration}`);
-} while (confirm(`¿Deseas continuar?`));
+} while (confirm(`¿Deseas continuar?`)); 
+*/
+
+let valor = -2;
+while (valor < 5) {
+  console.log(`While ${valor}`);
+  valor++;
+}
+valor = 5;
+do {
+  console.log(`Do-While ${valor}`);
+  valor++;
+} while (valor < 5);
+
+/* 
+  FIFO: first input first output.
+  LIFO: last input first output.
+*/
+
+const alimentos = [];
+
+// Usar FIFO:
+alimentos.push(`Manzanas del lunes`);
+alimentos.push(`Manzanas del miércoles`);
+
+console.log(alimentos);
+// Sacar las manzanas
+console.log(`Sacando las manzanas antiguas: ${alimentos.shift()}`)
+console.log(alimentos);
+console.log(`Sacando las manzanas antiguas: ${alimentos.shift()}`)
+console.log(alimentos);
+
+// Usar LIFO
+const productos = [];
+// Temporada navideña
+productos.push(`Desarmadores`);
+productos.push(`Luces de colores`);
+console.log(productos);
+console.log(`Sacando el producto reciente: ${productos.pop()}`);
+console.log(productos);
+console.log(`Sacando el producto reciente: ${productos.pop()}`);
+console.log(productos);
+
