@@ -25,3 +25,17 @@ dinero += 15; // dinero = dinero + 15;
 12 + 7 + 12 + 4 + 1;
 
 2 ** 3 ** 2;
+
+// --------------- Operadores Unarios ------------------
+// un operador unario realiza una operación en un solo operando.
+// Negación -
+dinero = -3;
+console.log(dinero);
+// a Numérico +
+dinero = +dinero; // Sigue siendo -3
+dinero = + `200`; // 200 numérico
+console.log(dinero);
+// typeof
+// Operador lógico not
+let valorBooleano = !true;
+console.log( valorBooleano );
