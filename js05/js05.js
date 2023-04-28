@@ -66,3 +66,28 @@ let x = 3;
 let y = ++x;
 console.log(`x: ${x++} y: ${++y}`); // 4 - 5
 console.log(`x: ${x} y: ${y}`);     // 5 - 5
+
+// ----------------------- Operadores lógicos AND && y OR || -------
+
+const a = true;
+const b = false;
+const c = true;
+console.log(a || b && c); // true
+
+// Operadores de corto circuito
+// Cuando los operadores logicos AND y OR actuan sobre operandos diferentes a Booleanos.
+
+// OP1 && OP2 si OP1 es verdadero, se realiza el resultado de OP2
+console.log(a && `Holi crayoli`);
+console.log(b && `Holi crayoli`);
+console.log(NaN && `El valor es un número que se puede procesar`); // NaN
+console.log(`false` && `El valor es false`); // EL valor es false
+console.log(`` && `No hay dato`); // ``
+
+// OP1 || OP2 si OP1 es verdadero, se realiza el resultado de OP1
+
+console.log(a || `Holi crayoli`); // true
+console.log(b || `Holi crayoli`); // `Holi crayoli`
+console.log(NaN || `El valor es un número que se puede procesar`); // `El valor es un número que se puede procesar`
+console.log(`false` || `El valor es false`); // `false`
+console.log(`` || `No hay dato`); // `No hay dato`
