@@ -38,4 +38,31 @@ console.log(dinero);
 // typeof
 // Operador lógico not
 let valorBooleano = !true;
-console.log( valorBooleano );
+console.log(valorBooleano);
+
+// Operadores de incremento y decremento
+// Operador de pre-incremento y pre-decremento
+// pre-incremento ++valor
+// pre-decremento --valor
+
+// operador de post-incremento y post-decremento
+// post-incremento valor++
+// post-decremento valor--
+
+let numero = 10;
+numero++; // 11
+++numero; // 12
+console.log(numero); // 12
+
+let nuevoValor = numero++;
+console.log(`nuevoValor ${nuevoValor}`);
+console.log(`número ${numero}`);
+
+nuevoValor = ++numero;
+console.log(`nuevoValor ${nuevoValor}`);
+console.log(`número ${numero}`);
+
+let x = 3;
+let y = ++x;
+console.log(`x: ${x++} y: ${++y}`); // 4 - 5
+console.log(`x: ${x} y: ${y}`);     // 5 - 5
