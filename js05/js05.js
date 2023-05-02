@@ -91,3 +91,73 @@ console.log(b || `Holi crayoli`); // `Holi crayoli`
 console.log(NaN || `El valor es un número que se puede procesar`); // `El valor es un número que se puede procesar`
 console.log(`false` || `El valor es false`); // `false`
 console.log(`` || `No hay dato`); // `No hay dato`
+
+const noDefinido = true;
+console.log(noDefinido || theBigBang);
+
+// Quiero imprimir "Estás Autorizado" si la variable isOnline y isActive son true.
+const isOnline = true;
+const isActive = true;
+if (isOnline)
+  if (isActive)
+    console.log(`Estas autorizado`);
+    
+if (isOnline && isActive)
+  console.log(`Estas autorizado`);
+
+console.log(isOnline && isActive ? `Estas autorizado` : `No estas autorizado`);
+
+console.log(isActive && isOnline && `Estás Autorizado`)
+
+//----------------------------- Operadores relacionales --------------------
+/* 
+  Un operador de comparación compara sus operandos y devuelve un valor lógico en función de si la
+  comparación es verdadera (true) o falsa (false). Los operandos pueden ser valores numéricos, de
+  cadena, lógicos u objetos. Las cadenas se comparan según el orden lexicográfico estándar,
+  utilizando valores Unicode. En la mayoría de los casos, si los dos operandos no son del mismo
+  tipo, JavaScript intenta convertirlos a un tipo apropiado para la comparación.
+  Este comportamiento generalmente resulta en comparar los operandos numéricamente.
+
+  < menor que
+  > mayor que
+  <= menor o igual que
+  >= mayor o igual que
+  == igual que
+
+*/
+
+console.log(true == `true`); // false
+console.log(23 < `40`); // true
+
+console.log(`b` < `A`); // false
+
+console.log(`Hola` < `HOLA`); // false
+
+console.log(`Hola` < `123`); // false
+
+console.log(`Hola` < `KeHace` + 1000); // true
+
+console.log(`23` == 23); // true
+
+// ------------------- Comparación estricta ------------------
+/*
+ === estrictamente igual, debe ser igual en el valor y tipo
+ !== estrictamente diferente, debe ser difente en valor y tipo
+
+*/
+
+console.log(`23` === 23); // false
+console.log(`true` === true); // false
+console.log(`45` !== 45); // true
+
+// Operador de asignación
+const myNumber = 34;
+
+// Desestructuración (Destructuring)
+/* 
+  Es una expresión en JS que hace posible extraer datos de arreglos u objetos y nos
+  ayuda a realizar asignaciones más complejas.
+*/
+let dataA = 10;
+let dataB = 20;
+// Quiero intercambiar los datos
