@@ -1,0 +1,1 @@
+console.log(`Sesion js06 Manipulación del DOM`);
