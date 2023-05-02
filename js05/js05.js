@@ -160,4 +160,61 @@ const myNumber = 34;
 */
 let dataA = 10;
 let dataB = 20;
+console.log(`a: ${dataA} , b:${dataB} `);
 // Quiero intercambiar los datos
+/* 
+let temporal;
+temporal = dataA;
+dataA = dataB;
+dataB = temporal;
+*/
+[dataA, dataB] = [dataB, dataA];
+console.log(`a: ${dataA} , b:${dataB} `); 
+
+const calificaciones = [50, 80, 100, 30, 60, 99];
+let resto;
+[dataA, , ,dataB, ...resto] = calificaciones; // aqui se asginan el orden que se indico.
+console.log(`a: ${dataA} , b:${dataB} , resto:${resto}`); 
+
+const primerAnio = {
+  dataA: `43 alumnos`,
+  dataB: `50 alumnos`,
+  dataC: `20 alumnos`
+};
+
+console.log(`a: ${dataA} , b:${dataB} `);
+
+({ dataA, dataB } = primerAnio); // aqui se asginan por su nombre no por el orden.
+
+console.log(`a: ${dataA} , b:${dataB} `);
+
+const auto = {
+  model: `Chevrolet`,
+  year: 2023,
+  color: `red`,
+  motor: `2.0`
+};
+
+console.log(`Modelo: ${auto.model}`);
+
+// asignando el valor model del objeto auto a la constante model
+                  // inicializar con valor por default
+//const { model, colorAuto = `Pistache` } = auto;
+                // Asignar un nuevo nombre al atributo
+const { model, color: colorAuto } = auto;
+console.log(`Modelo: ${model} color: ${colorAuto}`);
+
+// ------------------- ejercicio --------------------------------
+/* 
+    Hacer una función que realice la división de 2 números
+    y me entregue (return) en entero el cociente y residuo
+*/
+
+const division = (a, b) => {
+  const cociente = parseInt(a / b);
+  const residuo = (a % b);
+  return { cociente, residuo };
+};
+
+const { cociente, residuo } = division(9, 5);
+console.log(`El resultado de 9/5, cociente: ${cociente}, residuo ${residuo}. `);
