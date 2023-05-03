@@ -53,3 +53,38 @@ const newElement = () => {
   document.getElementById(`article-news`).appendChild(nodoClonado);
 };
 newElement();
+
+const changeColor = (color) => {
+  const refIntro = document.getElementById(`intro`);
+  refIntro.style.color = color;
+};
+changeColor(`#FF0000`);
+
+// Agregar a un elemento un border
+// .style.border
+
+const changeBorder = (color) => {
+  const refNews = document.getElementById(`article-news`);
+  refNews.style.border = `thick solid ${color}`;
+};
+changeBorder(`#FF0000`);
+
+// --------------- Propiedades de visualización (desaparecer elementos) -------------
+// display: none (Quitar el elemento del DOM).
+// visibility: hidden (Ocultar el elemento).
+
+const quitarBoton = () => {
+  const buutonRef = document.getElementById(`button-B`);
+  buutonRef.style.display = "none";
+};
+
+const ocultarBoton = () => {
+  const buutonRef = document.getElementById(`button-B`);
+  buutonRef.style.visibility = "hidden";
+};
+
+const reestablecerBoton = () => {
+  const buutonRef = document.getElementById(`button-B`);
+  buutonRef.style.display = "inline";
+  buutonRef.style.visibility = "visible";
+};
