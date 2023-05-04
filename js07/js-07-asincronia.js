@@ -56,19 +56,21 @@ const refStopInterval = document.getElementById(`detener`);
 const refDateH2 = document.getElementById(`fecha`);
 let idInterval;
 
+const changeButtonState = (Button1, Button2) => {
+  [Button1.disabled, Button2.disabled] = [Button2.disabled, Button1.disabled];
+};
+
 refStartInterval.addEventListener(`click`, () => {
   //console.log(`Se pulso iniciar`);
   idInterval = setInterval(() => {
     refDateH2.innerHTML = new Date().toLocaleString();
   }, 1000);
-  refStartInterval.disabled = true;
-  refStopInterval.disabled = false;
+  changeButtonState(refStartInterval, refStopInterval);
 });
 
 refStopInterval.addEventListener(`click`, () => {
   //console.log(`Se pulso detener`);
   //detener mi intervalo
   clearInterval(idInterval);
-  refStartInterval.disabled = false;
-  refStopInterval.disabled = true;
+  changeButtonState(refStopInterval, refStartInterval);
 });
