@@ -36,7 +36,7 @@ const divideAvalibe = new Promise((resolve, reject) => {
   const a = 5;
   const b = 0;
   if (b != 0) resolve(a/b);
-  else reject(`La división no se puede realizar debido a que el divisor es 0`);
+  else reject(`La división no se puede realizar debido a que el divisor es cero`);
 });
 
 divideAvalibe
@@ -47,9 +47,53 @@ divideAvalibe
 
 const divisionConParametros = (a, b) => {
   const myPromise = new Promise((resolve, reject) => {
-    if (b === 0) reject(`La división no se puede realizar debido a que el divisor es 0`);
+    if (b === 0) reject(`No se puede realizar una división por cero`);
     else resolve(a/b);
   });
+  return myPromise;
 };
 
-divisionConParametros(3, 4);
+divisionConParametros(3, 4)
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error))
+  .finally(() => console.log(`Se termino la división`));
+
+divisionConParametros(3, 0)
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error));
+
+// ------------------- Consumir las promesas con async y await ------------
+
+
+const realizarDivisionSincrona = async() => {
+  console.log(`<---Resolviendo divisiones--->`);
+  const resultado = await (divisionConParametros(20, 4));
+  console.log(resultado);
+  console.log(resultado + 100);
+  //const resultadoErroneo = await (divisionConParametros(20, 0));
+  //console.log(resultadoErroneo);
+  console.log(`<---Terminando divisiones--->`);
+}
+realizarDivisionSincrona();
+
+// ----------------- Manejo de exepciones con try y catch ----------------
+/* 
+  Sintaxis
+  try{
+  
+  } catch (error){
+  
+  }
+*/
+
+const manejoDeExepciones = async () =>{
+  console.log("<----Resolviendo divisiones usando try y catch---->");  
+  try {
+    const resultadoErroneo = await divisionConParametros(20,0) ;
+    console.log(resultadoErroneo);
+  } catch (error) {
+    console.error(`Asyn-Await ${error}`);
+  }
+  console.log("<----Terminando divisiones usando try y catch-----");
+};
+manejoDeExepciones();
