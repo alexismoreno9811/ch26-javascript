@@ -30,14 +30,45 @@ const getProducts = (httpUrl) => {
     .catch((error)=>console.log(error));
 };
 
-getProducts(url);
+//getProducts(url);
 
 // ------------------ Consumir Fecth Async y Await -----------------
 
 const printTitle = async (httpUrl) => {
-  const productObj = await fetch(httpUrl);
-  const jsonObj = await productObj.json();
-  console.log(`---------- Await ------------`);
-  jsonObj.forEach((element) => console.log(element.title));
+  try {
+    const productObj = await fetch(httpUrl);
+    const jsonObj = await productObj.json();
+
+    sessionStorage.setItem(`mis-productos`, JSON.stringify(jsonObj));
+
+    console.log(`---------- Await ------------`);
+    jsonObj.forEach((element) => console.log(element.title));
+  } catch (error) {
+    console.log(error);
+  }
 };
-printTitle(url);
+
+//printTitle(url);
+
+// ---------------- Realizar una solicitud POST --------------------
+
+const postUser = (url, userData) => {
+  //fecth().then(()=>{}).catch(()=>{});
+  fetch(url, {
+    method: "POST",  // PUT or DELETE
+    body: JSON.stringify(userData), // los datos del usuario, conversión Obj->JSON
+    headers: { "Content-Type": "application/json" }
+  })
+    .then((response) => response.json())
+    .then((register) => console.log(register))
+    .catch((error) => console.log(error));
+};
+
+const user = {
+  name: "The Alex",
+  job: "Cholo mayor"
+};
+
+const urlPost = "https://reqres.in/api/users";
+
+postUser(urlPost, user);
